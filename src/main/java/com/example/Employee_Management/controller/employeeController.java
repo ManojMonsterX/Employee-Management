@@ -20,6 +20,7 @@ import com.example.Employee_Management.exception.resourceNotFoundException;
 import com.example.Employee_Management.model.employee;
 import com.example.Employee_Management.repository.EmployeeRepository;
 
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1/")
@@ -63,4 +64,9 @@ public class employeeController {
 		return ResponseEntity.ok(response);
 		
 	}
+	@GetMapping("/employees")
+	public List<employee> getAllEmployees(){
+		return employeeRepository.findAll();
+	}
+	
 }
